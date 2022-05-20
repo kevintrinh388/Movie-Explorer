@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/style.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <h1>SIGNUP PAGE</h1>
+    <h2>{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <b class="flash">{{message}}</b>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}</h2>
+    <form action="/signup" method="POST">
+        <input type="text" name="username">
+        <input type="submit" value="CLICK TO SIGNUP">
+    </form>
+
+    <a href="login">CLICK HERE TO GO TO LOGIN PAGE</a>
+</body>
+</html>

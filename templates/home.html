@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MILESTONE2</title>
+  </head>
+  <body>
+    <h1>KEVIN T'S MOVIE DISCOVERY WEB APP</h1>
+    <h1>Currently logged in as: {{current_username}}</h1>
+    <a href="/reviews">CLICK TO VIEW YOUR REVIEWS</a>
+    <br>
+    <form action="/signout" method="post">
+      <input type="submit" value="CLICK TO SIGNOUT">
+    </form>
+    <br>
+    <h2>{{details['title']}}</h2>
+    <h3>{{details['tagline']}}</h3>
+    <h4>Genres: {{', '.join(details['genres'])}}</h4>
+    <img src={{details['image']}} alt="image">
+    <h4><a href="{{wiki}}" target="_blank">CLICK HERE TO VIEW WIKI PAGE</a></h4>
+    <form action="/home" method="POST">
+      <p>Movie ID</p>
+      <input type="text" name="movie" value={{movie}} readonly>
+
+      <p>Rating (out of 5)</p>
+      <input type="number" name="rating" min="1" max="5">
+
+      <p>Leave a comment</p>
+      <input type="text" name="comment">
+
+      <input type="submit" value="Submit Comment">
+    </form>
+    <h2>See what other people said!</h2>
+    {%for i in reviews%}
+      <p>User: {{i.username}}</p>
+      <p>Rating: {{i.rating}}</p>
+      <p>Comment: {{i.comment}}</p>
+      <br>
+    {%endfor%}
+  </body>
+</html>
