@@ -1,4 +1,5 @@
-MILESTONE 3
+Movie Discovery App
+Link to app - https://rocky-woodland-86089.herokuapp.com/
 
 Technologies, frameworks, libraries, and APIs used:
 
